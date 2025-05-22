@@ -15,33 +15,35 @@
                 <h1>Телефонный справочник</h1>
             </div>
             <div class="header-right">
-                <span id="currentUser" class="user-info"></span>
-                <button id="logoutBtn" class="btn logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Выйти
-                </button>
+                <div class="user-info">
+                    <span id="currentUser"></span>
+                    <button id="logoutBtn" class="btn logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Выйти
+                    </button>
+                </div>
             </div>
         </header>
         
         <div class="app-content">
             <aside class="sidebar">
                 <div class="user-panel">
-                    <div id="userRole" class="user-role"></div>
+                    <div id="userRole" class="user-role-badge"></div>
                 </div>
                 
-                <button id="addContactBtn" class="btn sidebar-btn">
+                <button id="addContactBtn" class="btn primary-btn">
                     <i class="fas fa-plus"></i> Добавить контакт
                 </button>
                 
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Поиск...">
-                    <button id="searchBtn" class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
+                <div class="search-box">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Поиск контактов...">
+                    </div>
                 </div>
                 
                 <div class="filters">
                     <h3><i class="fas fa-filter"></i> Фильтры</h3>
-                    <select id="departmentFilter" class="filter-select">
+                    <select id="departmentFilter" class="styled-select">
                         <option value="">Все отделы</option>
                         <option value="IT">IT</option>
                         <option value="Бухгалтерия">Бухгалтерия</option>
@@ -54,10 +56,11 @@
             <main class="main-content">
                 <div class="content-header">
                     <h2><i class="fas fa-users"></i> Список контактов</h2>
+                    <div class="contacts-count" id="contactsCount"></div>
                 </div>
                 
                 <div class="table-container">
-                    <table id="contactsTable">
+                    <table id="contactsTable" class="contacts-table">
                         <thead>
                             <tr>
                                 <th><i class="fas fa-user"></i> ФИО</th>
@@ -69,7 +72,7 @@
                             </tr>
                         </thead>
                         <tbody id="contactsList">
-                            <!-- Контакты будут здесь -->
+                            <!-- Контакты будут загружены здесь -->
                         </tbody>
                     </table>
                 </div>
@@ -82,7 +85,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="modalTitle"><i class="fas fa-user-edit"></i> Новый контакт</h2>
-                <span class="close">&times;</span>
+                <span class="close-btn">&times;</span>
             </div>
             <form id="contactForm" class="modal-form">
                 <input type="hidden" id="contactId">
@@ -120,7 +123,6 @@
         </div>
     </div>
 
-    <script src="auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
     <script src="script.js"></script>
 </body>
